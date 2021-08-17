@@ -132,6 +132,7 @@ typedef void (*wsrep_log_cb_t)(wsrep_log_level_t, const char *);
 #define WSREP_FLAG_PA_UNSAFE            ( 1ULL << 3 )
 #define WSREP_FLAG_COMMUTATIVE          ( 1ULL << 4 )
 #define WSREP_FLAG_NATIVE               ( 1ULL << 5 )
+#define WSREP_FLAG_SKIP_BINLOG          ( 1ULL << 6 )
 
 
 typedef uint64_t wsrep_trx_id_t;  //!< application transaction ID
@@ -1129,6 +1130,7 @@ struct wsrep {
                                        size_t                  keys_num,
                                        const struct wsrep_buf* action,
                                        size_t                  count,
+                                       uint32_t                flags,
                                        wsrep_trx_meta_t*       meta);
 
   /*!
